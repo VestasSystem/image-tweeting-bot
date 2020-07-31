@@ -15,7 +15,10 @@ const logLevels = {
 class TwitterWrapper{
 	constructor(options){
 		this.options = options;
-		this.logLevel = logLevels[options.logLevel.toLowerCase()];
+		this.logLevel = "";
+		console.log(options);
+		if(options.logLevel != "" && options.logLevel != undefined)
+			this.logLevel = logLevels[options.logLevel.toLowerCase()];
 		if(this.logLevel == "") this.logLevel = logLevels.fatal;
 	}
 	
