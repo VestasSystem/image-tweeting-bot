@@ -1,0 +1,12 @@
+{
+	"consumerKey": "",
+	"consumerSecret": "",
+	"accessTokenKey": "",
+	"accessTokenSecret": "",
+	"statusToSend": "",
+	"imagePath": "./images",
+	"alreadySentPath": "./sent_images",
+	"retweetImages": true,
+	"numberToUpload": 1,
+	"schedule": "0 * * * *"
+}
