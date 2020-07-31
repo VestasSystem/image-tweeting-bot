@@ -105,3 +105,5 @@ dist
 
 # Config files for application
 *.json
+!package.json
+!package-lock.json
