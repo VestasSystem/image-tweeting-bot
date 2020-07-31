@@ -11,12 +11,12 @@
 	"twitter",
 	"image",
 	"twitter bot"
-  ]
+  ],
   "license": "MIT",
   "repository": {
 	"type": "git",
-	"url": ""
-  }
+	"url": "git+https://github.com/VestasSystem/image-tweeting-bot.git"
+  },
   "dependencies": {
     "mime-types": "^2.1.27",
     "node-cron": "^2.0.3",
