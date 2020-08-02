@@ -91,7 +91,9 @@ class TwitterWrapper{
 		//Put the data into a Buffer object for easier access
 		var bufferData = Buffer.from(fileData);
 		var bufferLength = bufferData.length;
-		if(bufferLength > (5*megabyteSize)){
+		if(bufferLength > (5*megabyteSize) && mediaType.startsWith("image")){
+			throw 'File size too large';
+		} else if(bufferLength > (15*megabyteSize)){
 			throw 'File size too large';
 		}
 		
