@@ -25,6 +25,17 @@ class ImageTweetingBot{
 			this.imageHandler.makeFolder(this.alreadySentPath);
 		}
 		this.retweetImages = configs.retweetImages;
+
+		this.useStatus = config.useStatus;
+		if(this.useStatus){
+			var statusFile = config.statusFile;
+			var statusContents = fs.readFileSync(configFile, 'utf8');
+			if(statusContents == "") this.useStatus = false;
+			else{
+				this.statuses = JSON.parse(statusContents);
+				this.numberToUpload = 1;
+			}
+		}
 		
 		//create the Twitter Wrapper
 		this.twitterWrapper = new TwitterWrapper({
@@ -80,10 +91,13 @@ class ImageTweetingBot{
 			}
 			if(filesToUpload.length == 0) throw 'No more images';
 		}
+
+		var status = this.statusToSend;
+		if(this.useStatus) status = this.statuses[filesToUpload[1]];
 		
 		//Upload the file
 		try{
-			await this.twitterWrapper.uploadImagesAndSendTweet(this.statusToSend, filesToUpload);
+			await this.twitterWrapper.uploadImagesAndSendTweet(status, filesToUpload);
 		} catch(e){
 			throw e;
 		}

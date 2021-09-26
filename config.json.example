@@ -8,5 +8,8 @@
 	"alreadySentPath": "./sent_images",
 	"retweetImages": true,
 	"numberToUpload": 1,
-	"schedule": "0 * * * *"
+	"schedule": "0 * * * *",
+	//If use status is defined, it sets numberToUpload to 1 automatically
+	"useStatus": true,
+	"statusFile": "statuses.json"
 }
